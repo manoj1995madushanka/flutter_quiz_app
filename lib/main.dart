@@ -22,19 +22,23 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+/**
+ * _ used to make private properties
+ * because need to protect state that can not access for outside class
+ * */
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     // this setState method re-render the UI when this executed
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -50,8 +54,8 @@ class MyAppState extends State<MyApp> {
           title: const Text("Question App"),
         ),
         body: Column(children: [
-          Text(quetions[questionIndex]),
-          RaisedButton(child: Text("Answer 1"), onPressed: answerQuestion),
+          Text(quetions[_questionIndex]),
+          RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion),
           RaisedButton(
               child: Text("Answer 2"),
               onPressed: () => print("Answer 2 chosen")),
