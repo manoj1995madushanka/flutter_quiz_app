@@ -15,7 +15,18 @@ void main() {
 * Scaffold gives mobile view to widget
 * */
 
-class MyApp extends StatelessWidget {
+/**
+ * when the external data changes this class can recreate
+ * when the question index change this will retrieve new state to trigger
+ * */
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questionIndex = 0;
