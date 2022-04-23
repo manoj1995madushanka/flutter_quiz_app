@@ -27,18 +27,22 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+
+  void answerQuestion() {
+    // this setState method re-render the UI when this executed
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
+    print(questionIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
-    var questionIndex = 0;
-
     var quetions = [
       'what\'s your favourite color?',
       'what\'s your favourite animal?'
     ];
-
-    void answerQuestion() {
-      questionIndex++;
-    }
 
     return MaterialApp(
       home: Scaffold(
@@ -46,7 +50,7 @@ class MyAppState extends State<MyApp> {
           title: const Text("Question App"),
         ),
         body: Column(children: [
-          Text(quetions.elementAt(questionIndex)),
+          Text(quetions[questionIndex]),
           RaisedButton(child: Text("Answer 1"), onPressed: answerQuestion),
           RaisedButton(
               child: Text("Answer 2"),
