@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Question.dart';
+
 void main() {
   // runAPP build the main widget and call build() on it
   runApp(MyApp());
@@ -54,7 +56,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text("Question App"),
         ),
         body: Column(children: [
-          Text(quetions[_questionIndex]),
+          Question(quetions[_questionIndex]),
           RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion),
           RaisedButton(
               child: Text("Answer 2"),
