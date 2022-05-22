@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/Answer.dart';
 
 import 'Question.dart';
 
@@ -43,6 +44,7 @@ class _MyAppState extends State<MyApp> {
     print(_questionIndex);
   }
 
+
   @override
   Widget build(BuildContext context) {
     var quetions = [
@@ -57,7 +59,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(children: [
           Question(quetions[_questionIndex]),
-          RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion),
+          Answer(_answerQuestion),
+          Answer(_answerQuestion),
+          Answer(_answerQuestion),
+          /*RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion),
           RaisedButton(
               child: Text("Answer 2"),
               onPressed: () => print("Answer 2 chosen")),
@@ -65,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               child: Text("Answer 3"),
               onPressed: () {
                 print("answer 3 chosen");
-              }),
+              }),*/
         ]),
       ),
     );
